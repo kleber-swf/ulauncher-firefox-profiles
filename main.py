@@ -62,7 +62,7 @@ class KeywordQueryEventListener(EventListener):
 
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
-        subprocess.Popen([extension.preferences['firefox_cmd'], '-p', event.get_data()], start_new_session=True)
+        subprocess.Popen([*extension.preferences['firefox_cmd'].split(), '-p', event.get_data()], start_new_session=True)
 
 
 if __name__ == '__main__':
